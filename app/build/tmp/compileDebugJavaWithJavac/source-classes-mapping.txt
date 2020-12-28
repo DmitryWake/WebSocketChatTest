@@ -1,0 +1,17 @@
+com/example/websocketchattest/BuildConfig.java
+ com.example.websocketchattest.BuildConfig
+com/example/websocketchattest/api/ApiModule_ProvideChatApiFactory.java
+ com.example.websocketchattest.api.ApiModule_ProvideChatApiFactory
+com/example/websocketchattest/ui/fragment/chat/ChatModule_ViewModelFactoryFactory.java
+ com.example.websocketchattest.ui.fragment.chat.ChatModule_ViewModelFactoryFactory
+com/example/websocketchattest/api/ApiModule_ProvideRetrofitFactory.java
+ com.example.websocketchattest.api.ApiModule_ProvideRetrofitFactory
+com/example/websocketchattest/di/dagger/components/DaggerAppComponent.java
+ com.example.websocketchattest.di.dagger.components.DaggerAppComponent
+ com.example.websocketchattest.di.dagger.components.DaggerAppComponent$1
+ com.example.websocketchattest.di.dagger.components.DaggerAppComponent$Builder
+ com.example.websocketchattest.di.dagger.components.DaggerAppComponent$MainActivitySubcomponentImpl
+ com.example.websocketchattest.di.dagger.components.DaggerAppComponent$MainActivitySubcomponentImpl$ChatFragmentSubcomponentImpl
+com/example/websocketchattest/ui/fragment/chat/ChatViewModel_Factory.java
+ com.example.websocketchattest.ui.fragment.chat.ChatViewModel_Factory
+ com.example.websocketchattest.ui.fragment.chat.ChatViewModel_Factory$InstanceHolder
