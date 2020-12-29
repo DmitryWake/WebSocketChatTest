@@ -6,7 +6,7 @@ import java.lang.System;
 public final class Chat {
     private final com.example.websocketchattest.api.ChatApi api = null;
     @org.jetbrains.annotations.NotNull()
-    public static final java.lang.String BASE_URL = "http://localhost:8080";
+    public static final java.lang.String BASE_URL = "http://messenger.kc:8080";
     @org.jetbrains.annotations.NotNull()
     public static final java.lang.String TOKEN = "token";
     public static final com.example.websocketchattest.api.Chat.Companion Companion = null;

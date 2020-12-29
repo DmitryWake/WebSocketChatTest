@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class ChatViewModel @Inject constructor(): ViewModel(), LifecycleObserver {
 
-    private val checkStatusLiveData = MutableLiveData<String>()
+    val checkStatusLiveData = MutableLiveData<String>()
     private var checkStatusDisposable: Disposable? = null
 
     fun initViewModel() {
@@ -19,7 +19,7 @@ class ChatViewModel @Inject constructor(): ViewModel(), LifecycleObserver {
         subscribeOn(Schedulers.io()).
         observeOn(AndroidSchedulers.mainThread()).
         subscribe( { t ->
-            Log.i(CHAT_VIEW_MODEL_TAG, t)
+            checkStatusLiveData.value = t
         }, { e ->
             Log.e(CHAT_VIEW_MODEL_TAG, e.message.toString())
         })

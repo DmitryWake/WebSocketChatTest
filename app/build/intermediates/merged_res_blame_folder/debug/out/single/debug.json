@@ -72,6 +72,10 @@
         "source": "C:\\Users\\User\\AndroidStudioProjects\\WebSocketChatTest\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\User\\AndroidStudioProjects\\WebSocketChatTest\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_chat.xml.flat",
+        "source": "C:\\Users\\User\\AndroidStudioProjects\\WebSocketChatTest\\app\\src\\main\\res\\layout\\fragment_chat.xml"
+    },
+    {
         "merged": "C:\\Users\\User\\AndroidStudioProjects\\WebSocketChatTest\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\User\\AndroidStudioProjects\\WebSocketChatTest\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },

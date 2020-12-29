@@ -10,12 +10,14 @@ class Chat() {
 
     // TODO Ввести нужный токен и url
     companion object {
-        const val BASE_URL = "http://localhost:8080"
+        const val BASE_URL = "http://messenger.kc:8080"
         const val TOKEN = "token"
     }
 
     fun checkHealth(): Single<String> {
-        return api.healthCheck()
+        return api.healthCheck().map {
+            it.status
+        }
     }
 
 }
