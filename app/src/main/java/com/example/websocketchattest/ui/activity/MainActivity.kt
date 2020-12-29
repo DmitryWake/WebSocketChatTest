@@ -1,13 +1,10 @@
 package com.example.websocketchattest.ui.activity
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
 import com.example.websocketchattest.R
 import com.example.websocketchattest.application.App
-import com.example.websocketchattest.ui.fragment.chat.ChatFragment
+import com.example.websocketchattest.ui.fragment.chat.MainFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +16,7 @@ class MainActivity : AppCompatActivity() {
             .beginTransaction()
             .replace(
                 R.id.fragment_container,
-                ChatFragment()
+                MainFragment()
             )
             .commit()
     }

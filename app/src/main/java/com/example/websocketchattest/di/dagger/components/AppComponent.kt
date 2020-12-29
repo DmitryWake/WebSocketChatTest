@@ -1,6 +1,6 @@
 package com.example.websocketchattest.di.dagger.components
 
-import com.example.websocketchattest.api.ApiModule
+import com.example.websocketchattest.api.request.ApiModule
 import com.example.websocketchattest.api.ChatApi
 import dagger.Component
 import javax.inject.Singleton

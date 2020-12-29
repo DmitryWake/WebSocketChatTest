@@ -2,15 +2,19 @@
 package com.example.websocketchattest.di.dagger.components;
 
 import androidx.lifecycle.ViewModelProvider;
-import com.example.websocketchattest.api.ApiModule;
-import com.example.websocketchattest.api.ApiModule_ProvideChatApiFactory;
-import com.example.websocketchattest.api.ApiModule_ProvideRetrofitFactory;
 import com.example.websocketchattest.api.ChatApi;
-import com.example.websocketchattest.ui.fragment.chat.ChatFragmentSubcomponent;
-import com.example.websocketchattest.ui.fragment.chat.ChatModule;
-import com.example.websocketchattest.ui.fragment.chat.ChatModule_ViewModelFactoryFactory;
-import com.example.websocketchattest.ui.fragment.chat.ChatViewModel_Factory;
+import com.example.websocketchattest.api.request.ApiModule;
+import com.example.websocketchattest.api.request.ApiModule_ProvideChatApiFactory;
+import com.example.websocketchattest.api.request.ApiModule_ProvideLoggingInterceptorFactory;
+import com.example.websocketchattest.api.request.ApiModule_ProvideOkHttpClientFactory;
+import com.example.websocketchattest.api.request.ApiModule_ProvideRetrofitFactory;
+import com.example.websocketchattest.ui.fragment.chat.MainFragmentModule;
+import com.example.websocketchattest.ui.fragment.chat.MainFragmentModule_ViewModelFactoryFactory;
+import com.example.websocketchattest.ui.fragment.chat.MainFragmentSubcomponent;
+import com.example.websocketchattest.ui.fragment.chat.MainViewModel_Factory;
 import dagger.internal.Preconditions;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
 
 @SuppressWarnings({
     "unchecked",
@@ -31,9 +35,15 @@ public final class DaggerAppComponent implements AppComponent {
     return new Builder().build();
   }
 
+  private OkHttpClient getOkHttpClient() {
+    return ApiModule_ProvideOkHttpClientFactory.provideOkHttpClient(apiModule, ApiModule_ProvideLoggingInterceptorFactory.provideLoggingInterceptor(apiModule));}
+
+  private Retrofit getRetrofit() {
+    return ApiModule_ProvideRetrofitFactory.provideRetrofit(apiModule, getOkHttpClient());}
+
   @Override
   public ChatApi getChatApi() {
-    return ApiModule_ProvideChatApiFactory.provideChatApi(apiModule, ApiModule_ProvideRetrofitFactory.provideRetrofit(apiModule));}
+    return ApiModule_ProvideChatApiFactory.provideChatApi(apiModule, getRetrofit());}
 
   @Override
   public MainActivitySubcomponent getMainActivitySubComponent() {
@@ -65,20 +75,20 @@ public final class DaggerAppComponent implements AppComponent {
     }
 
     @Override
-    public ChatFragmentSubcomponent chatComponent() {
-      return new ChatFragmentSubcomponentImpl();
+    public MainFragmentSubcomponent chatComponent() {
+      return new MainFragmentSubcomponentImpl();
     }
 
-    private final class ChatFragmentSubcomponentImpl implements ChatFragmentSubcomponent {
-      private final ChatModule chatModule;
+    private final class MainFragmentSubcomponentImpl implements MainFragmentSubcomponent {
+      private final MainFragmentModule mainFragmentModule;
 
-      private ChatFragmentSubcomponentImpl() {
-        this.chatModule = new ChatModule();
+      private MainFragmentSubcomponentImpl() {
+        this.mainFragmentModule = new MainFragmentModule();
       }
 
       @Override
       public ViewModelProvider.Factory viewModelFactory() {
-        return ChatModule_ViewModelFactoryFactory.viewModelFactory(chatModule, ChatViewModel_Factory.create());}
+        return MainFragmentModule_ViewModelFactoryFactory.viewModelFactory(mainFragmentModule, MainViewModel_Factory.create());}
     }
   }
 }
